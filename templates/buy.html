@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy
+{% endblock %}
+
+{% block main %}
+     <!-- FORM FOR USERS TO SUBMIT A SERVICE CONNECTION -->
+    <form action="/buy" method="post">
+        <input autocomplete="off" autofocus="" name="symbol" placeholder="Stock Symbol: E.g. SPY" type="text">
+        <input autocomplete="off" autofcous="" name="shares" placeholder="Number of shares: E.g. 1" type="text">
+        <button class="btn btn-primary" type="submit">Purchase</button>
+    </form>
+{% endblock %}

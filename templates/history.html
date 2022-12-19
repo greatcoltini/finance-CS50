@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+
+{% block main %}
+    <h1> TRANSACTION HISTORY </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Quantity</th>
+                <th>Transaction Type</th>
+                <th>Transaction Price</th>
+                <th>Individual Stock Price</th>
+                <th>Date</th>
+                <th>Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for transaction in transaction_history %}
+                <tr>
+                    <td>{{ transaction["stock"] }}</td>
+                    <td>{{ transaction["quantity"] }}</td>
+                    <td>{{ transaction["purchase_type"] }}</td>
+                    <td>{{ transaction["cost"] }}</td>
+                    <td>{{ transaction["individual_stock_price"] }}</td>
+                    <td>{{ transaction["purchase_date"] }}</td>
+                    <td>{{ transaction["purchase_time"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+    <h1> MONETARY BALANCE: {{ cash | usd }} </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Stock</th>
+                <th>Quantity</th>
+                <th>Current Price</th>
+                <th>Total Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stock in stock_portfolio %}
+                <tr>
+                    <td>{{ stock["stock"] }}</td>
+                    <td>{{ stock["quantity"] }}</td>
+                    <td>{{ stock["cost"] }}</td>
+                    <td>{{ stock["total_value"] }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h1> CURRENT ASSETS SUM: {{ total_assets | usd }} </h1>
+{% endblock %}

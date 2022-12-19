@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Account Settings
+{% endblock %}
+
+{% block main %}
+    <h1> ACCOUNT SETTINGS </h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Change Password</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>{{ user["username"] }}</td>
+                <td>
+                    <form name="password_form" action="/change_password" method="post">
+                        <input autocomplete="off" autofocus="" name="new_password" placeholder="New Password" type="password">
+                        <input autocomplete="off" autofocus="" name="new_password_confirm" placeholder="Confirm Password" type="password">
+                        <input type="submit" name="password_change" value="Change">
+                    </form>
+                </td>
+                <td></td>
+            </tr>
+        </tbody>
+    </table>
+    <hr>
+    <h2> FUNDS AND BALANCE SETTINGS </h2>
+    <h3> MONETARY BALANCE: {{ user["cash"] | usd }} </h3>
+    <form name="transaction_form" action="/funds" method="post">
+        <input autocomplete="off" autofocus="" name="monetary_value" placeholder="Money to add/withdraw" type="text">
+        <select name="transaction">
+            <option disabled selected value="">Transfer Type</option>
+            <option value="withdraw">Withdraw</option>
+            <option value="insert">Insert</option>
+        </select>
+        <input type="submit" name="transaction" value="Transfer">
+    </form>
+{% endblock %}

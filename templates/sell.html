@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+     <!-- FORM FOR USERS TO SUBMIT A SERVICE CONNECTION -->
+    <form action="/sell" method="post">
+        <select name="symbol">
+            <option disabled selected value="">Stocks</option>
+            {% for stock in stock_portfolio %}
+                <option value="{{ stock["stock"] }}">{{ stock["stock"] }} </option>
+            {% endfor %}
+        </select>
+        <input autocomplete="off" autofcous="" name="shares" placeholder="Number of shares: E.g. 1" type="text">
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+{% endblock %}

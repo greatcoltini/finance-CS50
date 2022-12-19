@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+     <!-- FORM FOR USERS TO SUBMIT A SERVICE CONNECTION -->
+    <form action="/quote" method="post">
+        <input autocomplete="off" autofocus="" name="symbol" placeholder="Stock Symbol: E.g. SPY" type="text">
+        <input type="submit" value="Get a Quote">
+    </form>
+
+    <h1> {{ symbol_info.symbol }} </h1>
+    <h2> The price is {{ symbol_info.price | usd }} , and this is owned by the company {{ symbol_info.name }}.</h2>
+{% endblock %}
